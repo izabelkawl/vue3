@@ -1,0 +1,37 @@
+{
+    "result": {
+      "totalCount": 4,
+      "items": [
+        {
+          "id": 1,
+          "name": "Backup",
+          "path": "C:\\Backup",
+          "isActive": true
+        },
+        {
+            "name": "WorkflowFile",
+            "path": "C:\\WorkflowFile",
+            "isActive": true
+          },
+          {
+            "id": 10,
+            "name": "C:\\",
+            "path": "C:\\Esb",
+            "isActive": true
+          },
+          {
+            "id": 11,
+            "name": "ServerFilesCatalog",
+            "path": "C:\\ServerFilesCatalog",
+            "isActive": true
+          }
+        ]
+      },
+      "targetUrl": null,
+      "success": true,
+      "error": null,
+      "unAuthorizedRequest": false,
+      "__abp": true
+    }
+    
+  
