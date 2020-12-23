@@ -1,12 +1,11 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-  </div>
+  <tr class="container">
+      <th scope="row">1</th>
+        <td>Kamil Buczyński</td>
+        <td>Praca</td> <td>2020-11-03 15:24</td>
+        <td>2020-11-03 00:00</td>
+        <td>2020-11-03 23:59</td>
+  </tr>
 </template>
 
 <script>

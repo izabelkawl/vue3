@@ -20,13 +20,8 @@
                  <th scope="col">Data do</th>
                  </tr>
                  </thead>
-                 <tbody><tr>
-                   <th scope="row">1</th>
-                   <td>Kamil Buczyński</td>
-                   <td>Praca</td> <td>2020-11-03 15:24</td>
-                 <td>2020-11-03 00:00</td>
-                 <td>2020-11-03 23:59</td>
-                 </tr>
+                 <tbody>
+                  <comp/>
                  <tr>
                    <th scope="row">2</th>
                    <td>Tomasz Arganiński</td>
@@ -49,10 +44,13 @@
 </template>
 
 <script>
+// @ is an alias to /src
+import comp from '@/components/comp.vue'
 
 export default {
   name: 'Home',
   components: {
+    comp
   }
 }
 </script>
