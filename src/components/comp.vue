@@ -1,14 +1,23 @@
 <template>
-  <tr class="container">
-      <th scope="row">1</th>
-        <td>Kamil Buczyński</td>
-        <td>Praca</td> <td>2020-11-03 15:24</td>
-        <td>2020-11-03 00:00</td>
-        <td>2020-11-03 23:59</td>
+<tbody>
+  <tr class="container" v-for="user in data.result.items" :key="user.id">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.path}}</td>
+        <td>{{user.isActive}}</td>
   </tr>
+  </tbody>
 </template>
 
 <script>
+import userData from '../json/data.json'
+export default {
+  data () {
+    return {
+      data: userData
+    }
+  }
+}
 
 </script>
 

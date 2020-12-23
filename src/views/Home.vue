@@ -13,32 +13,12 @@
                     <thead>
                       <tr>
                       <th scope="col">#</th>
-                    <th scope="col">Pracownik</th>
-                 <th scope="col">Definicja zdarzenia</th>
-                 <th scope="col">Data dodania</th>
-                 <th scope="col">Data od</th>
-                 <th scope="col">Data do</th>
+                    <th scope="col">Nazwa</th>
+                 <th scope="col">Ścieżka</th>
+                 <th scope="col">Aktywny</th>
                  </tr>
                  </thead>
-                 <tbody>
                   <comp/>
-                 <tr>
-                   <th scope="row">2</th>
-                   <td>Tomasz Arganiński</td>
-                 <td>RCP</td>
-                 <td>2020-11-03 15:20</td>
-                 <td>2020-10-15 07:45</td>
-                 <td>2020-10-15 16:45</td>
-                 </tr>
-                 <tr>
-                   <th scope="row">3</th>
-                   <td>Tomasz Arganiński</td>
-                 <td>RCP</td>
-                 <td>2020-11-03 15:19</td>
-                 <td>2020-06-15 07:45</td>
-                 <td>2020-06-15 16:45</td>
-                 </tr>
-                 </tbody>
                  </table>
                  </div></div></div><!----><!----></div></div></div>
 </template>
