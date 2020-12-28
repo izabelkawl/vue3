@@ -6,7 +6,19 @@
     <router-view/>
   </div>
 </template>
-
+<script>
+import userData from '../json/data.json'
+export default {
+  data () {
+    return {
+      data: userData
+    }
+  },
+  mounted () {
+    console.log(data)
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
