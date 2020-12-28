@@ -1,12 +1,18 @@
 <template>
-<tbody>
-  <tr class="container" v-for="user in data.result.items" :key="user.id">
-        <th scope="row">{{user.id}}</th>
-        <td>{{user.name}}</td>
-        <td>{{user.path}}</td>
-        <td>{{user.isActive}}</td>
-  </tr>
-  </tbody>
+  <b-tbody>
+    <b-tr v-for="user in data.result.items" :key="user.id">
+        <b-td class="icons text-center">
+          <b-icon icon="pencil-fill"></b-icon>
+          &nbsp;
+          <b-icon icon="trash-fill"></b-icon>
+        </b-td>
+        <b-td scope="row">{{user.name}}</b-td>
+        <b-td>{{user.path}}</b-td>
+        <b-td class="icons text-center">
+          <b-icon v-if="user.isActive === true" icon="check2"></b-icon>
+        </b-td>
+    </b-tr>
+  </b-tbody>
 </template>
 
 <script>
@@ -21,20 +27,8 @@ export default {
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style lang="scss">
+.icons {
+  color:#2b3c7f;
 }
 </style>
