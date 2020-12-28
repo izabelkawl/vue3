@@ -16,13 +16,15 @@
 </template>
 
 <script>
-//
 export default {
   name: 'Comp',
   data () {
     return {
       paths: this.$store.state.items
     }
+  },
+  mounted () {
+    console.log(this.$store.state.items)
   }
 }
 

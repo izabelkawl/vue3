@@ -9,6 +9,11 @@
 
 <script>
 export default {
+  data () {
+    return {
+      database: []
+    }
+  },
   mounted () {
     fetch('http://10.1.10.201:1088/api/services/app/Paths/GetAll')
       .then(function (response) {
