@@ -1,26 +1,27 @@
 <template>
-  <b-tbody>
-    <b-tr v-for="user in data.result.items" :key="user.id">
+  <b-tbody class="component">
+    <b-tr v-for="item in paths" :key="item.id">
         <b-td class="icons text-center">
           <b-icon icon="pencil-fill"></b-icon>
           &nbsp;
           <b-icon icon="trash-fill"></b-icon>
         </b-td>
-        <b-td scope="row">{{user.name}}</b-td>
-        <b-td>{{user.path}}</b-td>
+        <b-td scope="row">{{item.name}}</b-td>
+        <b-td>{{item.path}}</b-td>
         <b-td class="icons text-center">
-          <b-icon v-if="user.isActive === true" icon="check2"></b-icon>
+          <b-icon v-if="item.isActive === true" icon="check2"></b-icon>
         </b-td>
     </b-tr>
   </b-tbody>
 </template>
 
 <script>
-import userData from '../json/data.json'
+//
 export default {
+  name: 'Comp',
   data () {
     return {
-      data: userData
+      paths: this.$store.state.items
     }
   }
 }

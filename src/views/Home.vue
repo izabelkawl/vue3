@@ -12,7 +12,7 @@
             </b-thead>
             <comp/>
       </b-table-simple>
-       <p>Ilość: </p>
+       <p>Ilość: {{this.$store.state.items.length}}</p>
   </div>
 </template>
 

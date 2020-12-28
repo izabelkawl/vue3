@@ -6,6 +6,7 @@
     <router-view/>
   </div>
 </template>
+
 <script>
 export default {
   mounted () {
@@ -13,10 +14,11 @@ export default {
       .then(function (response) {
         return response.json()
       })
-      .then(data => console.log(data))
+      .then(data => { this.$store.commit('database', data.result.items) })
   }
 }
 </script>
+
 <style lang="scss">
 #app {
   font-family: Helvetica Neue,Segoe UI,Helvetica,Verdana,sans-serif;
