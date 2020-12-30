@@ -31,10 +31,16 @@ export default {
   min-height: 100vh;
   font-size: 14px;
   font-weight: 400;
-  background: #f8f8f8
+  background: #f8f8f8;
 }
 .b-sidebar {
-    width: 100px !important;
-    margin-top: 100px;
+  width: 120px !important;
+  justify-content: center;
+}
+#sidebar-1{
+  margin-top: 100px!important;
+}
+.b-sidebar > .b-sidebar-header{
+   display: none !important;
 }
 </style>

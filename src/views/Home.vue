@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-      <a>Strona główna | </a>
-      <a>Pulpit | </a>
-      <a>Ścieżki</a>
+      <a href="/">Strona główna</a>|
+      <a href="/pulpit">Pulpit</a>|
+      <a href="/pulpit/path">Ścieżki</a>
       <br>
       <hr>
       <div class="tablecontainer">
@@ -36,7 +36,7 @@
       </b-table-simple>
     <b-row>
       <b-col >
-       <p>Ilość: {{this.$store.state.items.length}}</p>
+       <p class="sum">Ilość: {{this.$store.state.items.length}}</p>
         </b-col>
       </b-row>
        </div>
@@ -60,19 +60,24 @@ export default {
 </script>
 <style lang="scss">
   .home{
-    padding: 100px;
+    padding: 40px 150px;
     margin: 0 auto;
   }
   .tablecontainer{
   background: #fff
   }
 a{
-    margin-right: 10px;
+    margin: 10px;
   }
 td{
     color: #6974a1;
   }
   .edit{
   width: 100px;
+  margin: 100px;
+  }
+  .sum{
+    margin-left: 112px;
+    font-weight: bold;
   }
 </style>
