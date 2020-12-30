@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-    </div>
-    <router-view/>
+    <index/>
   </div>
 </template>
 
 <script>
+import index from './views/index.vue'
 export default {
+  components: {
+    index
+  },
   data () {
     return {
       database: []
@@ -30,18 +31,10 @@ export default {
   min-height: 100vh;
   font-size: 14px;
   font-weight: 400;
+  background: #f8f8f8
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #2b3c7f;
-    }
-  }
+.b-sidebar {
+    width: 100px !important;
+    margin-top: 100px;
 }
 </style>

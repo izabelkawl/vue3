@@ -1,6 +1,6 @@
 <template>
   <b-tbody class="component">
-    <b-tr v-for="item in paths" :key="item.id">
+    <b-tr v-for="item in user.result.items" :key="item.id">
         <b-td class="icons text-center">
           <b-icon icon="pencil-fill"></b-icon>
           &nbsp;
@@ -16,10 +16,12 @@
 </template>
 
 <script>
+import userData from '../json/data.json'
 export default {
   name: 'Comp',
   data () {
     return {
+      user: userData,
       paths: this.$store.state.items
     }
   },

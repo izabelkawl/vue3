@@ -12,13 +12,13 @@
             "id": 9,
             "name": "WorkflowFile",
             "path": "C:\\WorkflowFile",
-            "isActive": false
+            "isActive": true
           },
           {
             "id": 10,
             "name": "C:\\",
             "path": "C:\\Esb",
-            "isActive": false
+            "isActive": true
           },
           {
             "id": 11,
