@@ -26,7 +26,7 @@
                 <b-td scope="col" class="edit"></b-td>
                 <b-td scope="col" >Nazwa</b-td>
                 <b-td scope="col" >Ścieżka</b-td>
-                <b-td scope="col" class="text-center">Aktywny</b-td>
+                <b-td scope="col" class="text-center">Aktywna</b-td>
               </b-tr>
             </b-thead>
             <comp/>
