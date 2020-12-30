@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: 'Navigation',
+  name: 'navbar',
   methods: {
     openNav () {
       document.getElementById('mySidebar').style.width = '250px'

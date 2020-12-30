@@ -57,17 +57,18 @@ export default {
   },
   methods: {
     onSubmit () {
-      this.database.push({ id: '5', name: this.name, path: this.path })
-
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: 'post' })
-      }
-      fetch('/api/services/app/Paths/Create', requestOptions)
-        .then(response => response.json())
-        .then(data => (this.database = data.id))
+      this.database = ({ id: '5', name: this.name, path: this.path })
+      this.$axios.post('/api/services/app/Paths/Create', this.database)
+        .then(response => (this.name = response.data.id))
     }
+    // const requestOptions = {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ title: 'post' })
+    // }
+    // fetch('/api/services/app/Paths/Create', requestOptions)
+    //   .then(response => response.json())
+    //   .then(data => (this.database = data.id))
   }
 }
 </script>

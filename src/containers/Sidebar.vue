@@ -1,5 +1,5 @@
 <template>
-<b-sidebar id="sidebar-1" shadow>
+<b-sidebar class="sidebar" id="sidebar-1" shadow>
     <div class="px-3 py-2">
       <a href="/"><div class="menu-items"><b-icon icon="house-fill"></b-icon><p>Pulpit</p></div></a>
       <a href="/kalendarz"><div class="menu-items"><b-icon icon="calendar-week-fill"></b-icon><p>Kalendarz</p></div></a>

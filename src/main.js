@@ -12,10 +12,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import router from './router'
 import store from './store'
 
+Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(Vuex)
-Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
 new Vue({

@@ -69,9 +69,6 @@ export default {
 a{
     margin: 10px;
   }
-td{
-    color: #6974a1;
-  }
   .edit{
   width: 100px;
   margin: 100px;
