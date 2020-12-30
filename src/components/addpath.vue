@@ -4,10 +4,10 @@
          <b-form-group
         label="Status">
           <b-form-checkbox
-            v-model="form.isActive"
+            v-model="isActive"
             name="check-button"
             switch>
-            <span>{{ form.isActive === true ? 'aktywna' : 'nieaktywna'}}</span>
+            <span>{{ isActive === true ? 'aktywna' : 'nieaktywna'}}</span>
             </b-form-checkbox>
         </b-form-group>
       </div>
@@ -16,7 +16,7 @@
         label="Nazwa">
           <b-form-input
             size="sm"
-            v-model="form.name"
+            v-model="name"
             type="text"
             required="required"
             aria-required="true"
@@ -29,7 +29,7 @@
         label="Ścieżka">
           <b-form-input
             size="sm"
-            v-model="form.path"
+            v-model="path"
             type="text"
             required="required"
             aria-required="true"
@@ -39,7 +39,7 @@
         </div>
           <template #modal-footer="{ cancel }">
             <b-button size="sm" variant="outline-secondary" @click="cancel()">Zamknij</b-button>
-            <b-button size="sm"  @click="onSubmit" >Dodaj</b-button>
+            <b-button size="sm" v-on:click="onSubmit" >Dodaj</b-button>
           </template>
     </b-modal>
 </template>
@@ -48,32 +48,25 @@ export default {
   name: 'add',
   data () {
     return {
-      form: {
-        name: '',
-        path: '',
-        isActive: ''
-      },
+      name: '',
+      path: '',
+      isActive: '',
       show: true,
       database: []
     }
   },
   methods: {
     onSubmit () {
-      fetch('/api/services/app/Paths/Create', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id: '12', name: this.form.name, path: this.form.path })
-      }).then(function (response) {
-        return response.json(JSON.stringify({ id: '12', name: this.form.name, path: this.form.path }))
-      }).then(function (text) {
-        console.log(text)
-        console.log(text)
-      }).catch(function (error) {
-        console.error(error)
-      })
-      console.log(JSON.stringify({ id: '12', name: this.form.name, path: this.form.path }))
+      this.database.push({ id: '5', name: this.name, path: this.path })
+
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'post' })
+      }
+      fetch('/api/services/app/Paths/Create', requestOptions)
+        .then(response => response.json())
+        .then(data => (this.database = data.id))
     }
   }
 }
