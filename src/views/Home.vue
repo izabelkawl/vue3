@@ -9,17 +9,7 @@
                 <b-row class="h-100 align-items-center">
                   <b-col sm="10"></b-col>
                   <div>
-                  <b-icon v-b-modal.add icon="plus-square" scale="1.5"></b-icon>
-                   <b-modal size="lg" id="add" centered  title="Zarządzaj ścieżkami">
-<div class="col-md-6 col-12"><fieldset class="form-group" id="__BVID__275"><legend tabindex="-1" class="bv-no-focus-ring col-form-label pt-0" id="__BVID__275__BV_label_">Status</legend></fieldset>
-<b-form-checkbox name="check-button" size="lg" switch>
-    </b-form-checkbox></div>
-
-    <br>
-                    <div class="col-md-6 col-12"><fieldset class="form-group" id="__BVID__275"><legend tabindex="-1" class="bv-no-focus-ring col-form-label pt-0" id="__BVID__275__BV_label_">Nazwa</legend><div tabindex="-1" role="group" class="bv-no-focus-ring"><input type="text" placeholder="Nazwa stanowiska pracy" required="required" aria-required="true" class="form-control" id="__BVID__276"><!----><!----><!----></div></fieldset></div>
-                    <div class="col col-12"><fieldset class="form-group" id="__BVID__278"><legend tabindex="-1" class="bv-no-focus-ring col-form-label pt-0" id="__BVID__278__BV_label_">Opis</legend><div tabindex="-1" role="group" class="bv-no-focus-ring"><textarea id="textarea" placeholder="Opis stanowiska pracy..." wrap="soft" class="form-control" style="resize: none; overflow-y: scroll; height: 101px;"></textarea><!----><!----><!----></div></fieldset></div>
-                    <p>.</p>
-                  </b-modal>
+                 <a v-b-modal.add> <b-icon icon="plus-square" scale="1.5"></b-icon></a>
                   </div>
                   <b-col >
                     <b-input-group size="sm">
@@ -40,6 +30,9 @@
               </b-tr>
             </b-thead>
             <comp/>
+            <!-- Modals -->
+            <add/>
+            <edit/>
       </b-table-simple>
     <b-row>
       <b-col >
@@ -53,14 +46,19 @@
 <script>
 // @ is an alias to /src
 import comp from '@/components/comp.vue'
+import add from '@/components/addpath.vue'
+import edit from '@/components/editpath.vue'
+
 export default {
   name: 'Home',
   components: {
-    comp
+    comp,
+    add,
+    edit
   }
 }
 </script>
-<style scoped>
+<style lang="scss">
   .home{
     padding: 100px;
     margin: 0 auto;
