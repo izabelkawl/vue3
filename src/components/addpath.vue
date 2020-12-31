@@ -65,6 +65,7 @@ export default {
       }
       fetch('http://10.1.10.201:1088/api/services/app/Paths/Create', requestOptions)
         .then(response => response.json())
+      alert('Dodano ściezkę')
     }
   }
 }

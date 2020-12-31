@@ -2,7 +2,7 @@
   <b-tbody class="component">
     <b-tr v-for="item in paths" :key="item.id">
         <b-td class="icons text-center">
-            <a v-b-modal.edit><b-icon icon="pencil-fill"></b-icon></a>
+            <a v-b-modal.edit ><b-icon icon="pencil-fill"></b-icon></a>
             &nbsp;
             <a @click.prevent="deletePath(item.id)"><b-icon icon="trash-fill"></b-icon></a>
         </b-td>
@@ -34,7 +34,7 @@ export default {
     deletePath (val) {
       fetch('http://10.1.10.201:1088/api/services/app/Paths/Delete?Id=' + val, { method: 'DELETE' })
         .then(response => response.json())
-        .then(res => console.log(res))
+      alert('Usunięto ściezkę')
     }
   }
 }
