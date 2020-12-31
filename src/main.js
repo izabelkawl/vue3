@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import App from './App.vue'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
 
 // BootstrapVue add
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
@@ -12,7 +10,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import router from './router'
 import store from './store'
 
-Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(Vuex)
