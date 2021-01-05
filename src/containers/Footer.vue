@@ -1,5 +1,5 @@
 <template>
-    <footer class="page-footer text-center">
+    <footer class="page-footer text-center fixed-bottom">
         <div class="footer-content">
             <div class="container-fluid">
                 <b-row class="h-100 align-items-center">
@@ -16,7 +16,7 @@ export default {
   name: 'Footer'
 }
 </script>
-<style scoped>
+<style lang="scss">
 footer{
     background: #fff;
     position: absolute;

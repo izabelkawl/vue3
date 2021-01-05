@@ -6,6 +6,7 @@
 
 <script>
 import index from './views/index.vue'
+
 export default {
   components: {
     index
@@ -42,5 +43,15 @@ export default {
 }
 .b-sidebar > .b-sidebar-header{
    display: none !important;
+}
+a{
+    color: black!important;
+    text-decoration: none!important;
+  }
+  a:hover{
+    color: #2b3c7f!important;
+  }
+  .btn .btn-secondary{
+  background-color: #fff;
 }
 </style>

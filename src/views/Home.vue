@@ -60,18 +60,11 @@ export default {
 </script>
 <style lang="scss">
   .home{
-    padding: 40px 150px;
+    padding: 120px 50px;
     margin: 0 auto;
   }
   .tablecontainer{
   background: #fff
-  }
-a{
-    color: black;
-    text-decoration: none!important;
-  }
-  a:hover{
-    color: #2b3c7f;
   }
   .edit{
   width: 100px;

@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar fixed-top">
         <div class="d-flex align-items-center navbar-left">
-            <a href="#" @click.prevent="openNav()" v-b-toggle.sidebar-1 class="menu-button d-none d-md-block">
+            <a href="#" @click="openNav()" v-b-toggle.sidebar-1 class="menu-button d-none d-md-block">
                     <b-icon icon="list" scale="2"></b-icon>
             </a>
         </div>
@@ -9,7 +9,8 @@
             <img src="../img/logo.jpg"/>
         </router-link>
         <div class="navbar-right d-flex align-items-center justify-content-end ">
-                  <b-icon class="bell" icon="bell" scale="1"></b-icon>
+                 <a href="/konto/logowanie"> <b-icon class="bell" icon="bell" scale="1"></b-icon>
+                 </a>
                   <b-dropdown right variant="empty" toggle-class="p-0" menu-class="mt-3" no-caret>
                           <template slot="button-content">
                               <div>
@@ -38,11 +39,8 @@ export default {
 nav{
     background: #fff;
     height: 100px;
-    padding-left: 45px;
-    padding-right: 45px;
-}
-.b-dropdown-item{
-padding-right: 45px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 .navbar{
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);

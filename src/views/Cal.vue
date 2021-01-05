@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss">
 .calendar{
-    padding: 40px 150px;
+    padding: 120px 50px;
     margin: 0 auto;
   }
 </style>

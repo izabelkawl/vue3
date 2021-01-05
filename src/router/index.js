@@ -13,6 +13,21 @@ const routes = [
     path: '/kalendarz',
     name: 'Calendar',
     component: () => import(/* webpackChunkName: "home" */ '../views/Cal.vue')
+  },
+  {
+    path: '/raporty',
+    name: 'Events',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Events.vue')
+  },
+  {
+    path: '/konto/logowanie',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Login.vue')
+  },
+  {
+    path: '/konto/rejestracja',
+    name: 'Register',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Register.vue')
   }
 ]
 
