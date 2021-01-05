@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-      <a href="/">Strona główna</a>|
-      <a href="/pulpit">Pulpit</a>|
+      <a href="/">Strona główna </a>|
+      <a href="/pulpit">Pulpit </a>|
       <a href="/pulpit/path">Ścieżki</a>
       <br>
       <hr>
@@ -67,7 +67,11 @@ export default {
   background: #fff
   }
 a{
-    margin: 10px;
+    color: black;
+    text-decoration: none!important;
+  }
+  a:hover{
+    color: #2b3c7f;
   }
   .edit{
   width: 100px;

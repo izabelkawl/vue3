@@ -2,7 +2,7 @@
 <div id="app-container">
     <top-nav/>
     <sidebar/>
-    <main>
+    <main id="main">
         <div class="container-fluid">
             <router-view/>
         </div>

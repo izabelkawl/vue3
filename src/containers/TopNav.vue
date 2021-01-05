@@ -28,8 +28,8 @@ export default {
   name: 'navbar',
   methods: {
     openNav () {
-      document.getElementById('mySidebar').style.width = '250px'
-      document.getElementById('main').style.marginLeft = '250px'
+      var main = document.getElementById('main')
+      main.style.marginLeft = main.style.marginLeft === '120px' ? '0' : '120px'
     }
   }
 }
@@ -38,8 +38,11 @@ export default {
 nav{
     background: #fff;
     height: 100px;
-    padding-left: 55px;
-    padding-right: 55px;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+.b-dropdown-item{
+padding-right: 45px;
 }
 .navbar{
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);

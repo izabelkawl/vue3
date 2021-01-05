@@ -3,9 +3,9 @@
         <div class="footer-content">
             <div class="container-fluid">
                 <b-row class="h-100 align-items-center">
-                    <b-col xxs="3" class="d-none d-sm-block"></b-col>
-                    <b-col xxs="9" sm="6">Copyright 2019 by ZETO-RZESZÓW Sp. z o.o. Wszelkie prawa zastrzeżone.</b-col>
-                    <b-col xxs="3"><a href="https://zetorzeszow.pl" target="_blank"><img src="../img/zeto.jpg"/></a></b-col>
+                    <b-col sm="1"></b-col>
+                    <b-col sm="10">Copyright 2019 by ZETO-RZESZÓW Sp. z o.o. Wszelkie prawa zastrzeżone.</b-col>
+                    <b-col sm="1 "><a href="https://zetorzeszow.pl" target="_blank"><img src="../img/zeto.jpg"/></a></b-col>
                 </b-row>
             </div>
         </div>
