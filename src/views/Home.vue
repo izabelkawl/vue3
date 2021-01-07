@@ -32,7 +32,6 @@
             <comp/>
             <!-- Modals -->
             <add/>
-            <edit/>
       </b-table-simple>
     <b-row>
       <b-col >
@@ -47,14 +46,12 @@
 // @ is an alias to /src
 import comp from '@/components/comp.vue'
 import add from '@/components/addpath.vue'
-import edit from '@/components/editpath.vue'
 
 export default {
   name: 'Home',
   components: {
     comp,
-    add,
-    edit
+    add
   }
 }
 </script>

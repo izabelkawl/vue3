@@ -1,42 +1,41 @@
 <template>
     <b-modal size="md" id="add" centered  title="Dodaj ścieżkę" v-if="show">
-      <div class=" col-12">
-         <b-form-group
-        label="Status">
-          <b-form-checkbox
-            v-model="isActive"
-            name="check-button"
-            switch>
-            <span>{{ isActive === true ? 'aktywna' : 'nieaktywna'}}</span>
+      <template>
+          <b-form-group
+              label="Status">
+            <b-form-checkbox
+              v-model="isActive"
+              name="check-button"
+              required="required"
+              switch>
+              <span>{{ isActive === true ? 'aktywna' : 'nieaktywna'}}</span>
             </b-form-checkbox>
-        </b-form-group>
-      </div>
-        <div class=" col-12">
-           <b-form-group
-        label="Nazwa">
-          <b-form-input
-            size="sm"
-            v-model="name"
-            type="text"
-            required="required"
-            aria-required="true"
-            class="form-control">
-          </b-form-input>
           </b-form-group>
-        </div>
-        <div class="col-12">
            <b-form-group
-        label="Ścieżka">
-          <b-form-input
-            size="sm"
-            v-model="path"
-            type="text"
-            required="required"
-            aria-required="true"
-            class="form-control">
-          </b-form-input>
+              label="Nazwa">
+            <b-form-input
+              size="sm"
+              v-model="name"
+              type="text"
+              required="required"
+              aria-required="true"
+              class="form-control">
+            </b-form-input>
           </b-form-group>
-        </div>
+          <b-form-group
+             label="Ścieżka">
+            <b-form-input
+              size="sm"
+              v-model="path"
+              type="text"
+              required="required"
+              aria-required="true"
+              class="form-control">
+            </b-form-input>
+            <br>
+            <br>
+          </b-form-group>
+        </template>
           <template #modal-footer="{ cancel }">
             <b-button size="sm" variant="outline-secondary" @click="cancel()">Zamknij</b-button>
             <b-button size="sm" v-on:click="onSubmit" >Dodaj</b-button>
@@ -50,7 +49,7 @@ export default {
     return {
       name: '',
       path: '',
-      isActive: '',
+      isActive: false,
       show: true,
       database: []
     }

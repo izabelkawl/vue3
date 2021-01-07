@@ -2,7 +2,7 @@
   <b-tbody class="component">
     <b-tr v-for="item in paths" :key="item.id">
         <b-td class="icons text-center">
-            <a v-b-modal.edit ><b-icon icon="pencil-fill"></b-icon></a>
+            <a @click="editModel(item)" ><b-icon icon="pencil-fill"></b-icon></a>
             &nbsp;
             <a @click.prevent="deletePath(item.id)"><b-icon icon="trash-fill"></b-icon></a>
         </b-td>
@@ -12,19 +12,25 @@
           <b-icon v-if="item.isActive === true" icon="check2"></b-icon>
         </b-td>
     </b-tr>
+    <edit :item ="dataModal" :openModal="editOpenModal"/>
   </b-tbody>
 </template>
 <script>
-
+import edit from './editpath'
 export default {
   name: 'Comp',
+  components: {
+    edit
+  },
   mounted () {
     this.table()
     console.log(this.$store.state.items)
   },
   data () {
     return {
-      paths: []
+      paths: [],
+      dataModal: {},
+      editOpenModal: false
     }
   },
   methods: {
@@ -35,6 +41,10 @@ export default {
       fetch('http://10.1.10.201:1088/api/services/app/Paths/Delete?Id=' + val, { method: 'DELETE' })
         .then(response => response.json())
       alert('Usunięto ściezkę')
+    },
+    editModel (val) {
+      this.editOpenModal = true
+      this.dataModal = val
     }
   }
 }

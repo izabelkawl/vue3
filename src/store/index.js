@@ -9,11 +9,15 @@ export default new Vuex.Store({
     storage: window.sessionStorage
   })],
   state: {
-    items: []
+    items: [],
+    selectedPath: []
   },
   mutations: {
     database (state, payload) {
       state.items = payload
+    },
+    setItem (state, payload) {
+      state.selectedPath = payload
     }
   },
   actions: {
