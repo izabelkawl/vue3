@@ -7,8 +7,9 @@
               v-model="isActive"
               name="check-button"
               required="required"
+              disabled
               switch>
-              <span>{{ isActive === true ? 'aktywna' : 'nieaktywna'}}</span>
+             {{ isActive === true ? 'aktywna' : 'nieaktywna'}}
             </b-form-checkbox>
           </b-form-group>
            <b-form-group
@@ -21,6 +22,8 @@
               aria-required="true"
               class="form-control">
             </b-form-input>
+              <span class="error" v-if="!$v.name.required">Nazwa nie moze byc pusta</span>
+              <span class="error" v-if="!$v.name.minLength">Min 4 znaki {{$v.name.$params.minLength.min}} letters.</span>
           </b-form-group>
           <b-form-group
              label="Ścieżka">
@@ -32,6 +35,8 @@
               aria-required="true"
               class="form-control">
             </b-form-input>
+            <span class="error" v-if="!$v.path.required">Ścieżka nie może być pusta</span>
+            <br>
             <br>
             <br>
           </b-form-group>
@@ -43,29 +48,60 @@
     </b-modal>
 </template>
 <script>
+import { required, minLength } from 'vuelidate/lib/validators'
+
 export default {
   name: 'add',
+  mounted () {
+    this.$v.$reset()
+  },
   data () {
     return {
       name: '',
       path: '',
-      isActive: false,
+      isActive: true,
       show: true,
-      database: []
+      database: [],
+      submitStatus: null
+    }
+  },
+  validations: {
+    name: {
+      required,
+      minLength: minLength(4)
+    },
+    path: {
+      required
     }
   },
   methods: {
     onSubmit () {
-      this.database = ({ name: this.name, path: this.path })
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(this.database)
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        this.submitStatus = 'ERROR'
+        alert('Błąd dodawnia, wypełnij pola')
+      } else {
+        this.database = ({ name: this.name, path: this.path })
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(this.database)
+        }
+        fetch('http://10.1.10.201:1088/api/services/app/Paths/Create', requestOptions)
+          .then(response => response.json())
+        alert('Dodano ściezkę')
+        this.submitStatus = 'PENDING'
+        setTimeout(() => {
+          this.submitStatus = 'OK'
+        }, 500)
       }
-      fetch('http://10.1.10.201:1088/api/services/app/Paths/Create', requestOptions)
-        .then(response => response.json())
-      alert('Dodano ściezkę')
     }
   }
 }
 </script>
+<style scoped>
+  span{
+    color: red;
+    font-size: 10px;
+  }
+</style>

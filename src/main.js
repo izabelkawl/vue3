@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Vuelidate from 'vuelidate'
 import App from './App.vue'
 
 // BootstrapVue add
@@ -13,6 +14,7 @@ import store from './store'
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(Vuex)
+Vue.use(Vuelidate)
 Vue.config.productionTip = false
 
 new Vue({

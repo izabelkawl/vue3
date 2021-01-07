@@ -24,7 +24,6 @@ export default {
   },
   mounted () {
     this.table()
-    console.log(this.$store.state.items)
   },
   data () {
     return {
