@@ -21,8 +21,8 @@ export default {
     await this.getPaths()
     // StatusDef
     await this.getStatusDef()
-    console.log(this.$store.state.items)
-    console.log(this.$store.state.statusitems)
+    // StepDef
+    await this.getStepDef()
   },
   methods: {
     async getPaths () {
@@ -38,6 +38,13 @@ export default {
           return response.json()
         })
         .then(data => { this.$store.commit('statusdef', data.result.items) })
+    },
+    async getStepDef () {
+      await fetch('http://10.1.10.201:1088/api/services/app/StepDef/GetAll')
+        .then(function (response) {
+          return response.json()
+        })
+        .then(data => { this.$store.commit('stepdef', data.result.items) })
     }
   }
 }

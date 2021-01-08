@@ -23,7 +23,7 @@
               class="form-control">
             </b-form-input>
               <span class="error" v-if="!$v.name.required">Nazwa nie moze byc pusta</span>
-              <span class="error" v-if="!$v.name.minLength">Min 4 znaki {{$v.name.$params.minLength.min}} letters.</span>
+              <span class="error" v-if="!$v.name.minLength">Min 3 znaki {{$v.name.$params.minLength.min}} letters.</span>
           </b-form-group>
           <b-form-group
              label="Ścieżka">
@@ -65,7 +65,7 @@ export default {
   validations: {
     name: {
       required,
-      minLength: minLength(4)
+      minLength: minLength(3)
     },
     path: {
       required

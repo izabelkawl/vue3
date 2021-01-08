@@ -1,17 +1,6 @@
 <template>
-    <b-modal size="md" id="addststusdef" centered  title="Dodaj status" v-if="show">
+    <b-modal size="md" id="addstepdef" centered  title="Dodaj status" v-if="show">
       <template>
-          <b-form-group
-              label="Status">
-            <b-form-checkbox
-              v-model="isActive"
-              name="check-button"
-              required="required"
-              disabled
-              switch>
-             {{ isActive === true ? 'aktywny' : 'nieaktywny'}}
-            </b-form-checkbox>
-          </b-form-group>
            <b-form-group
               label="Nazwa">
             <b-form-input
@@ -56,9 +45,8 @@ export default {
     return {
       name: '',
       description: '',
-      isActive: true,
       show: true,
-      statusdef: [],
+      stepdef: [],
       submitStatus: null
     }
   },
@@ -78,13 +66,13 @@ export default {
         this.submitStatus = 'ERROR'
         alert('Błąd dodawnia, wypełnij pola')
       } else {
-        this.statusdef = ({ name: this.name, description: this.description })
+        this.stepdef = ({ name: this.name, description: this.description })
         const requestOptions = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(this.statusdef)
+          body: JSON.stringify(this.stepdef)
         }
-        fetch('http://10.1.10.201:1088/api/services/app/StatusDef/Create', requestOptions)
+        fetch('http://10.1.10.201:1088/api/services/app/StepDef/Create', requestOptions)
           .then(response => response.json())
         alert('Dodano ststus')
         this.submitStatus = 'PENDING'

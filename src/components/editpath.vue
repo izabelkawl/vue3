@@ -17,7 +17,7 @@
             class="form-control">
           </b-form-input>
             <span class="error" v-if="!$v.item.name.required">Nazwa nie moze byc pusta</span>
-            <span class="error" v-if="!$v.item.name.minLength">Min 4 znaki.</span>
+            <span class="error" v-if="!$v.item.name.minLength">Min 3 znaki.</span>
           </b-form-group>
            <b-form-group
         label="Ścieżka">
@@ -32,7 +32,7 @@
           <br><br>
           <template #modal-footer="{ cancel }">
             <b-button size="sm" variant="outline-secondary" @click="cancel()">Zamknij</b-button>
-            <b-button size="sm" v-on:click="editSelectedPath(item.id)" >Dodaj</b-button>
+            <b-button size="sm" v-on:click="editSelectedPath(item.id)" >Zapisz</b-button>
           </template>
     </b-modal>
 </template>
@@ -55,7 +55,7 @@ export default {
     item: {
       name: {
         required,
-        minLength: minLength(4)
+        minLength: minLength(3)
       },
       path: {
         required

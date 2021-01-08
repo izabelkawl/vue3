@@ -1,14 +1,5 @@
 <template>
-    <b-modal v-model="StatusDefOpenModal" id="editstatus" size="md"  centered  title="Zarządzaj ścieżką">
-         <b-form-group
-        label="Status">
-          <b-form-checkbox
-            v-model="item.isActive"
-            name="check-button"
-            switch>
-            {{ item.isActive === true ? 'aktywna' : 'nieaktywna'}}
-            </b-form-checkbox>
-        </b-form-group>
+    <b-modal v-model="StepDefOpenModal" id="editstep" size="md"  centered  title="Zarządzaj step">
            <b-form-group
         label="Nazwa">
           <b-form-input
@@ -33,7 +24,7 @@
           <br><br>
           <template #modal-footer="{ cancel }">
             <b-button size="sm" variant="outline-secondary" @click="cancel()">Zamknij</b-button>
-            <b-button size="sm" v-on:click="editSelectedStatusDef(item.id)" >Zapisz</b-button>
+            <b-button size="sm" v-on:click="editSelectedStepDef(item.id)" >Zapisz</b-button>
           </template>
     </b-modal>
 </template>
@@ -41,15 +32,15 @@
 import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
-  name: 'editstatus',
+  name: 'editstep',
   props: {
     item: Object,
-    StatusDefOpenModal: Boolean
+    StepDefOpenModal: Boolean
   },
   data () {
     return {
-      statusdef: [],
-      submitStatus: null
+      stepdef: [],
+      submitStep: null
     }
   },
   validations: {
@@ -64,24 +55,24 @@ export default {
     }
   },
   methods: {
-    async editSelectedStatusDef (val) {
+    async editSelectedStepDef (val) {
       this.$v.$touch()
       if (this.$v.$invalid) {
-        this.submitStatus = 'ERROR'
+        this.submitStep = 'ERROR'
         alert('Błąd aktualizacji')
       } else {
-        this.statusdef = ({ id: val, name: this.item.name, description: this.item.description })
+        this.stepdef = ({ id: val, name: this.item.name, description: this.item.description })
         const requestOptions = {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(this.statusdef)
+          body: JSON.stringify(this.stepdef)
         }
-        await fetch('http://10.1.10.201:1088/api/services/app/StatusDef/Update?Id=' + val, requestOptions)
+        await fetch('http://10.1.10.201:1088/api/services/app/StepDef/Update?Id=' + val, requestOptions)
           .then(response => response.json())
         alert('Zaaktualizowano ściezkę')
-        this.submitStatus = 'PENDING'
+        this.submitStep = 'PENDING'
         setTimeout(() => {
-          this.submitStatus = 'OK'
+          this.submitStep = 'OK'
         }, 500)
       }
     }

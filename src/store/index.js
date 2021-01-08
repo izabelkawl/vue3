@@ -11,7 +11,8 @@ export default new Vuex.Store({
   state: {
     items: [],
     selectedPath: [],
-    statusitems: []
+    statusitems: [],
+    stepitems: []
   },
   mutations: {
     database (state, payload) {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
     },
     statusdef (state, payload) {
       state.statusitems = payload
+    },
+    stepdef (state, payload) {
+      state.stepitems = payload
     }
   },
   actions: {
