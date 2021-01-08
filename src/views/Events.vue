@@ -1,9 +1,9 @@
 <template>
   <div class="events">
     <a href="/">Strona główna </a>|
-      <a href="/pulpit">Pulpit </a>|
-      <a href="/pulpit/path">Ścieżki</a>
-        <h4>Ostatnio dodane zdarzenia</h4>
+    <a href="/pulpit">Pulpit </a>|
+    <a href="/pulpit/path">Ścieżki</a>
+      <h4>Ostatnio dodane zdarzenia</h4>
       <div class="tablebox">
        <b-table-simple hover >
             <b-thead>

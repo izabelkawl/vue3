@@ -3,7 +3,7 @@
     <div >
       <a href="/"><div class="menu-items"><b-icon icon="house-fill"></b-icon><p>Pulpit</p></div></a>
       <a href="/kalendarz"><div class="menu-items"><b-icon icon="calendar-week-fill"></b-icon><p>Kalendarz</p></div></a>
-      <a href="/"><div class="menu-items"><b-icon icon="people-fill"></b-icon><p>Pracownicy</p></div></a>
+      <a href="/status"><div class="menu-items"><b-icon icon="people-fill"></b-icon><p>Pracownicy</p></div></a>
       <a href="#"><div class="menu-items"><b-icon icon="gear"></b-icon><p>Konfiguracja</p></div></a>
       <a href="/raporty"><div class="menu-items"><b-icon icon="graph-up"></b-icon><p>Raporty</p></div></a>
     </div>

@@ -1,5 +1,5 @@
 <template>
-    <b-modal size="md" id="add" centered  title="Dodaj ścieżkę" v-if="show">
+    <b-modal size="md" id="addststusdef" centered  title="Dodaj status" v-if="show">
       <template>
           <b-form-group
               label="Status">
@@ -9,7 +9,7 @@
               required="required"
               disabled
               switch>
-             {{ isActive === true ? 'aktywna' : 'nieaktywna'}}
+             {{ isActive === true ? 'aktywny' : 'nieaktywny'}}
             </b-form-checkbox>
           </b-form-group>
            <b-form-group
@@ -26,16 +26,16 @@
               <span class="error" v-if="!$v.name.minLength">Min 4 znaki {{$v.name.$params.minLength.min}} letters.</span>
           </b-form-group>
           <b-form-group
-             label="Ścieżka">
+             label="Opis">
             <b-form-input
               size="sm"
-              v-model="path"
+              v-model="description"
               type="text"
               required="required"
               aria-required="true"
               class="form-control">
             </b-form-input>
-            <span class="error" v-if="!$v.path.required">Ścieżka nie może być pusta</span>
+            <span class="error" v-if="!$v.description.required">Opis nie może być pusty</span>
             <br>
             <br>
             <br>
@@ -51,14 +51,14 @@
 import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
-  name: 'add',
+  name: 'addstatusdef',
   data () {
     return {
       name: '',
-      path: '',
+      description: '',
       isActive: true,
       show: true,
-      database: [],
+      statusdef: [],
       submitStatus: null
     }
   },
@@ -67,7 +67,7 @@ export default {
       required,
       minLength: minLength(4)
     },
-    path: {
+    description: {
       required
     }
   },
@@ -78,15 +78,15 @@ export default {
         this.submitStatus = 'ERROR'
         alert('Błąd dodawnia, wypełnij pola')
       } else {
-        this.database = ({ name: this.name, path: this.path })
+        this.statusdef = ({ name: this.name, description: this.description })
         const requestOptions = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(this.database)
+          body: JSON.stringify(this.statusdef)
         }
-        fetch('http://10.1.10.201:1088/api/services/app/Paths/Create', requestOptions)
+        fetch('http://10.1.10.201:1088/api/services/app/StatusDef/Create', requestOptions)
           .then(response => response.json())
-        alert('Dodano ściezkę')
+        alert('Dodano ststus')
         this.submitStatus = 'PENDING'
         setTimeout(() => {
           this.submitStatus = 'OK'

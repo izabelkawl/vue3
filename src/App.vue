@@ -1,27 +1,44 @@
 <template>
   <div id="app">
-    <index/>
+    <menus/>
   </div>
 </template>
 
 <script>
-import index from './views/index.vue'
+import menus from './views/menus.vue'
 
 export default {
   components: {
-    index
+    menus
   },
   data () {
     return {
       database: []
     }
   },
-  mounted () {
-    fetch('http://10.1.10.201:1088/api/services/app/Paths/GetAll')
-      .then(function (response) {
-        return response.json()
-      })
-      .then(data => { this.$store.commit('database', data.result.items) })
+  async mounted () {
+    // Paths
+    await this.getPaths()
+    // StatusDef
+    await this.getStatusDef()
+    console.log(this.$store.state.items)
+    console.log(this.$store.state.statusitems)
+  },
+  methods: {
+    async getPaths () {
+      await fetch('http://10.1.10.201:1088/api/services/app/Paths/GetAll')
+        .then(function (response) {
+          return response.json()
+        })
+        .then(data => { this.$store.commit('database', data.result.items) })
+    },
+    async getStatusDef () {
+      await fetch('http://10.1.10.201:1088/api/services/app/StatusDef/GetAll')
+        .then(function (response) {
+          return response.json()
+        })
+        .then(data => { this.$store.commit('statusdef', data.result.items) })
+    }
   }
 }
 </script>

@@ -10,7 +10,8 @@ export default new Vuex.Store({
   })],
   state: {
     items: [],
-    selectedPath: []
+    selectedPath: [],
+    statusitems: []
   },
   mutations: {
     database (state, payload) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     setItem (state, payload) {
       state.selectedPath = payload
+    },
+    statusdef (state, payload) {
+      state.statusitems = payload
     }
   },
   actions: {

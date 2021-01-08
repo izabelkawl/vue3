@@ -19,6 +19,7 @@ import Sidebar from '@/containers/Sidebar'
 // import LoginNav from '@/containers/LoginNav'
 
 export default {
+  name: 'menus',
   components: {
     'top-nav': TopNav,
     sidebar: Sidebar,

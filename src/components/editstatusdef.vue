@@ -1,11 +1,12 @@
 <template>
-    <b-modal v-model="openModal" id="edit" size="md"  centered  title="Zarządzaj ścieżką">
+    <b-modal v-model="StatusDefOpenModal" id="editstatus" size="md"  centered  title="Zarządzaj ścieżką">
          <b-form-group
         label="Status">
           <b-form-checkbox
             v-model="item.isActive"
             name="check-button"
-            switch>{{ item.isActive === true ? 'aktywna' : 'nieaktywna'}}
+            switch>
+            {{ item.isActive === true ? 'aktywna' : 'nieaktywna'}}
             </b-form-checkbox>
         </b-form-group>
            <b-form-group
@@ -23,16 +24,16 @@
         label="Ścieżka">
           <b-form-input
             size="sm"
-            v-model="$v.item.path.$model"
+            v-model="$v.item.description.$model"
             type="text"
             class="form-control">
           </b-form-input>
-            <span class="error" v-if="!$v.item.path.required">Ścieżka nie może być pusta</span>
+            <span class="error" v-if="!$v.item.description.required">Opis nie może być pusty</span>
           </b-form-group>
           <br><br>
           <template #modal-footer="{ cancel }">
             <b-button size="sm" variant="outline-secondary" @click="cancel()">Zamknij</b-button>
-            <b-button size="sm" v-on:click="editSelectedPath(item.id)" >Dodaj</b-button>
+            <b-button size="sm" v-on:click="editSelectedStatusDef(item.id)" >Dodaj</b-button>
           </template>
     </b-modal>
 </template>
@@ -40,14 +41,14 @@
 import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
-  name: 'edit',
+  name: 'editstatus',
   props: {
     item: Object,
-    openModal: Boolean
+    StatusDefOpenModal: Boolean
   },
   data () {
     return {
-      database: [],
+      statusdef: [],
       submitStatus: null
     }
   },
@@ -57,25 +58,25 @@ export default {
         required,
         minLength: minLength(4)
       },
-      path: {
+      description: {
         required
       }
     }
   },
   methods: {
-    async editSelectedPath (val) {
+    async editSelectedStatusDef (val) {
       this.$v.$touch()
       if (this.$v.$invalid) {
         this.submitStatus = 'ERROR'
         alert('Błąd aktualizacji')
       } else {
-        this.database = ({ id: val, name: this.item.name, path: this.item.path })
+        this.statusdef = ({ id: val, name: this.item.name, description: this.item.description })
         const requestOptions = {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(this.database)
+          body: JSON.stringify(this.statusdef)
         }
-        await fetch('http://10.1.10.201:1088/api/services/app/Paths/Update?Id=' + val, requestOptions)
+        await fetch('http://10.1.10.201:1088/api/services/app/StatusDef/Update?Id=' + val, requestOptions)
           .then(response => response.json())
         alert('Zaaktualizowano ściezkę')
         this.submitStatus = 'PENDING'
