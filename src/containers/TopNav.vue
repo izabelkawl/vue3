@@ -30,7 +30,7 @@ export default {
   methods: {
     openNav () {
       var main = document.getElementById('main')
-      main.style.marginLeft = main.style.marginLeft === '120px' ? '0' : '120px'
+      main.style.marginLeft = main.style.marginLeft === '350px' ? '0' : '350px'
     }
   }
 }

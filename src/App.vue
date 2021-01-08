@@ -53,13 +53,12 @@ export default {
 <style lang="scss">
 #app {
   font-family: Helvetica Neue,Segoe UI,Helvetica,Verdana,sans-serif;
-  min-height: 100vh;
   font-size: 14px;
   font-weight: 400;
   background: #f8f8f8;
 }
 .b-sidebar {
-  width: 120px !important;
+  // width: 120px !important
   justify-content: center;
 }
 #sidebar-1{
@@ -69,7 +68,7 @@ export default {
    display: none !important;
 }
 a{
-    color: black!important;
+    color: black;
     text-decoration: none!important;
   }
   a:hover{
